@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kosta.mvc.model.dto.Member;
 
@@ -75,6 +76,22 @@ public class ParameterController {
 	@ModelAttribute("addr")//${addr} 
 	public String aaa() {
 		return "경기도 성남시 판교로...";
+	}
+	
+	/**
+	 * parameter로 넘어오는 name과 매개변수의 이름이 다를 때
+	 * @RequestParam을 사용해서 매핑해줄수 있다.
+	 *  : @RequestParam을 선언하면 requird="true"이다.(값이 반드시 들어와야하는 속성)
+	 *   즉, 값이 반드시 들어와야한다.
+	 *   defaultValue를 지정해주면 값이 없을 때 default값으로 지정해준다.
+	 * */
+	@RequestMapping("/d.do")
+	public String dd(@RequestParam(value="id" , defaultValue = "Guest")
+	String userId,@RequestParam(value="name",required = false) String userName,  @RequestParam(defaultValue = "0") int age) {
+		System.out.println("userId : "+userId);
+		System.out.println("userName : "+userName);
+		System.out.println("age : "+age);
+		return "result";//뷰의 이름 WEB-INF/views/result.jsp
 	}
 	
 	

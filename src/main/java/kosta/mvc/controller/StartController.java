@@ -8,9 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class StartController {
 	
 	@RequestMapping("/index.do")
-	public ModelAndView aa() {
+	public ModelAndView aa(String id) {
 		System.out.println("index.do가 요청되어 aa()가 호출됨...");
-		
+		System.out.println("id :"+id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("message","SpringWebMVC 신기하다"); //${message}
 		mv.setViewName("result"); //WEB-INF/view/result.jsp

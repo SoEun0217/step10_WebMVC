@@ -10,7 +10,10 @@
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<!-- <annotation-driven /> -->
+	
+	<!--  spring Web MVC에 관련된 Annotation을 활성화 시키는 설정-->
+	 <annotation-driven />
+	 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<!-- <resources mapping="/resources/**" location="/resources/" /> -->
 
@@ -22,6 +25,20 @@
 	
 	<context:component-scan base-package="kosta.mvc.controller" />
 	
+	<!-- 모든 Controller에서 발생하는 예외에 대한 처리 빈 설정하기 -->
+	<beans:bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	  <beans:property name="exceptionMappings">
+	    <beans:props>
+	      <beans:prop key="java.lang.NumberFormatException">
+	        error/NumberView
+	      </beans:prop>
+	    </beans:props>
+	  </beans:property>
+	</beans:bean>
+	
+	
+	<!-- SimpleMappingExceptionResolver와 @ExceptionHandler를 함께 사용하기 위한 Bean설정 -->
+	<!-- <beans:bean class="Annotationm"/> -->
 	
 	
 </beans:beans>

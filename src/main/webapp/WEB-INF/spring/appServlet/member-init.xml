@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean class="kosta.mvc.model.dto.Member" id = "m1">
+  <property name="id" value="jang"/>
+  <property name="name" value="소은"/>
+  <property name="addr" value="서울"/>
+  <property name="age" value="20"></property>
+</bean> 
+
+
+<bean class="kosta.mvc.model.dto.Member" id = "m2">
+  <property name="id" value="hong"/>
+  <property name="name" value="자영"/>
+  <property name="addr" value="거여"/>
+  <property name="age" value="2"></property>
+</bean> 
+
+<bean class="kosta.mvc.model.dto.Member" id = "m3">
+  <property name="id" value="sal"/>
+  <property name="name" value="살구"/>
+  <property name="addr" value="소은집"/>
+  <property name="age" value="2"></property>
+</bean> 
+</beans>
